@@ -1,0 +1,53 @@
+data:
+  processed_test_path: data/processed/test_processed.csv
+  processed_train_path: data/processed/train_processed.csv
+  submission_path: data/processed/submission.csv
+  test_path: data/raw/test.csv
+  train_path: data/raw/train.csv
+evaluation:
+  metrics:
+  - accuracy
+  - precision
+  - recall
+  - f1_score
+  sensitive_features:
+  - Gender
+  - Age
+  - City
+features:
+  categorical:
+  - Gender
+  - City
+  - Working Professional or Student
+  - Profession
+  - Dietary Habits
+  - Degree
+  - Have you ever had suicidal thoughts ?
+  - Family History of Mental Illness
+  - Sleep Duration
+  numerical:
+  - Age
+  - Academic Pressure
+  - Work Pressure
+  - CGPA
+  - Study Satisfaction
+  - Job Satisfaction
+  - Work/Study Hours
+  - Financial Stress
+  target: Depression
+model:
+  batch_size: 64
+  dropout_rate: 0.3
+  early_stopping_patience: 10
+  epochs: 50
+  hidden_layers:
+  - 128
+  - 64
+  - 32
+  input_size: 352
+  learning_rate: 0.001
+  saved_model_path: models/best_model.pth
+  validation_split: 0.2
+output:
+  results_file: results/evaluation_results.json
+  visualizations_dir: visualizations
